@@ -1,2 +1,2 @@
 # startupTools
-Use scripts when starting your own company
+Useful scripts when starting your own company
