@@ -81,27 +81,27 @@ def send_mail(service, user_id, body_mail):
         return "mail send"
 
 
-def get_templated_mail(first_name):
-    subject_mail_mail = "¡You Can't Miss It! 😺"
+def get_templated_mail(firstname):
+    subject_mail_mail = "You Can't Miss It! 😺"
     html_template_mail = """\
         <html>
           <head></head>
           <body>
             <img src="https://www.vech.com.mx/static/images/vech_banner.png">
-            <p>¡Hey {first_name}!</p>
+            <p>Hey {firstname}!</p>
             <p>
                 ¿You earn at least $50 USD every week with Uber, Uber Eats, DiDi, DiDi Food, Rappi, or Cornershop? <br><br>
-                Vech guarantees you a <strong>¡loan TODAY of $25 USD!</strong><br>
+                <strong>Vech guarantees you a loan TODAY of $25 USD!</strong><br>
             </p>
             <p style="text-align:center; font-size:large;">
-                <strong><a href="https://ingresos-garantizados.vech.com.mx" target="_blank" class="button">¡I want my 
-                Income Promise!</a><strong>
+                <strong><a href="https://ingresos-garantizados.vech.com.mx" target="_blank" class="button">I want my 
+                Income Promise</a><strong>
             </p>
             <br>
           </body>
         </html>     
     """
-    html_templated_mail = html_template_mail.format(first_name=first_name)
+    html_templated_mail = html_template_mail.format(firstname=firstname)
     return html_templated_mail, subject_mail_mail
 
 
@@ -110,13 +110,13 @@ if __name__ == '__main__':
     gmail_creds = get_credentials_gmail_api()
     service_gmail = build('gmail', 'v1', credentials=gmail_creds)
 
-    recipient_email = 'pierre@vech.com.mx'
+    recipient_email = 'pierre@gmail.com'
     first_name = 'Pierre'
     print(recipient_email, first_name)
 
     # Template and body
     html_templated_adhoc, subject_adhoc = get_templated_mail(first_name)
-    print(html_templated_adhoc)
+    # print(html_templated_adhoc)
 
     body_mail_adhoc = \
         create_mail(sender_mail="soporte@vech.com.mx", recipient_mail=recipient_email,
